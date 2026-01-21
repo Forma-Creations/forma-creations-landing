@@ -67,11 +67,11 @@ export function Header() {
               ))}
             </div>
 
-            {/* CTA - text only with underline */}
+            {/* CTA - button style */}
             <div className="hidden md:block">
               <a
                 href="#contacto"
-                className="link-editorial text-[13px] text-[#0066CC] font-medium tracking-[-0.01em]"
+                className="inline-flex items-center px-4 py-1.5 bg-[#0066CC] text-white text-[13px] font-medium tracking-[-0.01em] border border-[#F5F5F7] rounded transition-all duration-300 hover:bg-[#0052A3]"
               >
                 Contacto
               </a>

@@ -7,7 +7,7 @@ export function Hero() {
       <div className="flex-1 flex flex-col justify-center mx-auto max-w-[1400px] w-full px-6 md:px-10 pt-20 pb-12">
         {/* Editorial caption */}
         <div>
-          <span className="text-caption">Estudio digital / 2025</span>
+          <span className="text-caption">Estudio digital / 2026</span>
         </div>
 
         {/* Typography as Architecture - Massive headline */}
@@ -45,47 +45,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Bottom section with thin rule */}
-      <div className="mx-auto max-w-[1400px] w-full px-6 md:px-10 pb-8">
-        <div className="rule-fade mb-8" />
-
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-          {/* Minimal stats - no boxes */}
-          <div className="flex gap-16">
-            <div>
-              <span className="block text-[11px] text-[#86868B] tracking-[0.08em] uppercase mb-1">
-                Proyectos
-              </span>
-              <span className="text-[24px] font-bold tracking-[-0.03em]">
-                50+
-              </span>
-            </div>
-            <div>
-              <span className="block text-[11px] text-[#86868B] tracking-[0.08em] uppercase mb-1">
-                Clientes
-              </span>
-              <span className="text-[24px] font-bold tracking-[-0.03em]">
-                30+
-              </span>
-            </div>
-            <div className="hidden md:block">
-              <span className="block text-[11px] text-[#86868B] tracking-[0.08em] uppercase mb-1">
-                Desde
-              </span>
-              <span className="text-[24px] font-bold tracking-[-0.03em]">
-                2021
-              </span>
-            </div>
-          </div>
-
-          {/* Scroll indicator - minimal */}
-          <div>
-            <span className="text-[11px] text-[#86868B] tracking-[0.08em] uppercase">
-              Scroll para explorar
-            </span>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

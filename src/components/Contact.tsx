@@ -70,17 +70,6 @@ export function Contact() {
                   @formacreations.mx
                 </a>
               </div>
-
-              <div className="rule-fade max-w-[200px]" />
-
-              <div>
-                <span className="text-[11px] text-[#86868B] tracking-[0.08em] uppercase block mb-2">
-                  Respuesta
-                </span>
-                <span className="text-[15px] text-[#1D1D1F] tracking-[-0.01em]">
-                  En menos de 24h
-                </span>
-              </div>
             </div>
           </div>
 
