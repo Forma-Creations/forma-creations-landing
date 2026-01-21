@@ -60,7 +60,7 @@ export function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="link-editorial text-[13px] text-[#444444] tracking-[-0.01em] transition-colors duration-300 hover:text-[#000000]"
+                  className="link-editorial text-[13px] text-[#6E6E73] tracking-[-0.01em] transition-colors duration-300 hover:text-[#0066CC]"
                 >
                   {item.label}
                 </a>
@@ -71,7 +71,7 @@ export function Header() {
             <div className="hidden md:block">
               <a
                 href="#contacto"
-                className="link-editorial text-[13px] text-[#000000] font-medium tracking-[-0.01em]"
+                className="link-editorial text-[13px] text-[#0066CC] font-medium tracking-[-0.01em]"
               >
                 Contacto
               </a>
@@ -115,7 +115,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`py-5 text-[11px] tracking-[0.1em] uppercase text-[#444444] border-b border-[rgba(0,0,0,0.08)] transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] hover:text-[#000000] ${
+                className={`py-5 text-[11px] tracking-[0.1em] uppercase text-[#6E6E73] border-b border-[rgba(29,29,31,0.08)] transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] hover:text-[#0066CC] ${
                   isMobileMenuOpen
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-8"
@@ -131,7 +131,7 @@ export function Header() {
             <a
               href="#contacto"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`block text-[11px] tracking-[0.1em] uppercase text-[#000000] font-medium transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+              className={`block text-[11px] tracking-[0.1em] uppercase text-[#0066CC] font-medium transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
                 isMobileMenuOpen
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
@@ -144,7 +144,7 @@ export function Header() {
             <div className="rule mt-8 mb-8" />
 
             <p
-              className={`text-[11px] tracking-[0.02em] text-[#737371] transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+              className={`text-[11px] tracking-[0.02em] text-[#86868B] transition-all duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${
                 isMobileMenuOpen
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"

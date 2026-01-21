@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export function Contact() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -9,24 +8,6 @@ export function Contact() {
     message: "",
   });
   const [focusedField, setFocusedField] = useState<string | null>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-liquid-up");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = containerRef.current?.querySelectorAll("[data-animate]");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,80 +17,67 @@ export function Contact() {
   return (
     <section
       id="contacto"
-      ref={containerRef}
-      className="relative py-32 md:py-48 grain"
+      className="relative py-12 md:py-16 grain"
     >
       <div className="rule-fade" />
 
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-20 md:pt-32">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-12 md:pt-16">
         {/* Two column layout */}
-        <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left - Info */}
           <div>
-            <span data-animate className="opacity-0 text-caption block mb-8">
+            <span className="text-caption block mb-8">
               Contacto
             </span>
 
-            <h2
-              data-animate
-              className="opacity-0 text-[clamp(2rem,4vw,3rem)] font-medium tracking-[-0.03em] text-[#000000] leading-[1.1]"
-              style={{ animationDelay: "100ms" }}
-            >
+            <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold tracking-[-0.03em] text-[#1D1D1F] leading-[1.1]">
               Hablemos de
               <br />
               <span className="italic">tu proyecto.</span>
             </h2>
 
-            <p
-              data-animate
-              className="opacity-0 mt-8 text-[15px] text-editorial leading-[1.7] tracking-[-0.01em] max-w-sm"
-              style={{ animationDelay: "200ms" }}
-            >
+            <p className="mt-8 text-[15px] text-editorial leading-[1.7] tracking-[-0.01em] max-w-sm">
               Cuentanos sobre tu idea y juntos encontraremos la mejor manera de
               hacerla realidad.
             </p>
 
             {/* Contact details - minimal */}
-            <div
-              data-animate
-              className="opacity-0 mt-16 space-y-6"
-              style={{ animationDelay: "300ms" }}
-            >
+            <div className="mt-12 space-y-6">
               <div>
-                <span className="text-[11px] text-[#737371] tracking-[0.08em] uppercase block mb-2">
+                <span className="text-[11px] text-[#86868B] tracking-[0.08em] uppercase block mb-2">
                   Email
                 </span>
                 <a
-                  href="mailto:hola@formacreations.com"
-                  className="link-editorial text-[15px] text-[#000000] tracking-[-0.01em]"
+                  href="mailto:formacreationsmx@gmail.com"
+                  className="link-editorial text-[15px] text-[#0066CC] tracking-[-0.01em]"
                 >
-                  hola@formacreations.com
+                  formacreationsmx@gmail.com
                 </a>
               </div>
 
               <div className="rule-fade max-w-[200px]" />
 
               <div>
-                <span className="text-[11px] text-[#737371] tracking-[0.08em] uppercase block mb-2">
+                <span className="text-[11px] text-[#86868B] tracking-[0.08em] uppercase block mb-2">
                   Instagram
                 </span>
                 <a
-                  href="https://instagram.com/formacreations"
+                  href="https://instagram.com/formacreations.mx"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-editorial text-[15px] text-[#000000] tracking-[-0.01em]"
+                  className="link-editorial text-[15px] text-[#0066CC] tracking-[-0.01em]"
                 >
-                  @formacreations
+                  @formacreations.mx
                 </a>
               </div>
 
               <div className="rule-fade max-w-[200px]" />
 
               <div>
-                <span className="text-[11px] text-[#737371] tracking-[0.08em] uppercase block mb-2">
+                <span className="text-[11px] text-[#86868B] tracking-[0.08em] uppercase block mb-2">
                   Respuesta
                 </span>
-                <span className="text-[15px] text-[#000000] tracking-[-0.01em]">
+                <span className="text-[15px] text-[#1D1D1F] tracking-[-0.01em]">
                   En menos de 24h
                 </span>
               </div>
@@ -117,11 +85,7 @@ export function Contact() {
           </div>
 
           {/* Right - Form */}
-          <div
-            data-animate
-            className="opacity-0"
-            style={{ animationDelay: "400ms" }}
-          >
+          <div>
             <form onSubmit={handleSubmit} className="space-y-10">
               {/* Name */}
               <div className="relative">
@@ -129,8 +93,8 @@ export function Contact() {
                   htmlFor="name"
                   className={`absolute left-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] pointer-events-none ${
                     focusedField === "name" || formState.name
-                      ? "text-[11px] text-[#737371] -top-6 tracking-[0.08em] uppercase"
-                      : "text-[15px] text-[#A3A3A1] top-3"
+                      ? "text-[11px] text-[#86868B] -top-6 tracking-[0.08em] uppercase"
+                      : "text-[15px] text-[#A1A1A6] top-3"
                   }`}
                 >
                   Nombre
@@ -145,7 +109,7 @@ export function Contact() {
                   }
                   onFocus={() => setFocusedField("name")}
                   onBlur={() => setFocusedField(null)}
-                  className="w-full py-3 bg-transparent border-b border-[rgba(0,0,0,0.08)] text-[#000000] text-[15px] tracking-[-0.01em] focus:outline-none focus:border-[#000000] transition-colors duration-500"
+                  className="w-full py-3 bg-transparent border-b border-[rgba(29,29,31,0.08)] text-[#1D1D1F] text-[15px] tracking-[-0.01em] focus:outline-none focus:border-[#0066CC] transition-colors duration-500"
                   required
                 />
               </div>
@@ -156,8 +120,8 @@ export function Contact() {
                   htmlFor="email"
                   className={`absolute left-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] pointer-events-none ${
                     focusedField === "email" || formState.email
-                      ? "text-[11px] text-[#737371] -top-6 tracking-[0.08em] uppercase"
-                      : "text-[15px] text-[#A3A3A1] top-3"
+                      ? "text-[11px] text-[#86868B] -top-6 tracking-[0.08em] uppercase"
+                      : "text-[15px] text-[#A1A1A6] top-3"
                   }`}
                 >
                   Email
@@ -172,7 +136,7 @@ export function Contact() {
                   }
                   onFocus={() => setFocusedField("email")}
                   onBlur={() => setFocusedField(null)}
-                  className="w-full py-3 bg-transparent border-b border-[rgba(0,0,0,0.08)] text-[#000000] text-[15px] tracking-[-0.01em] focus:outline-none focus:border-[#000000] transition-colors duration-500"
+                  className="w-full py-3 bg-transparent border-b border-[rgba(29,29,31,0.08)] text-[#1D1D1F] text-[15px] tracking-[-0.01em] focus:outline-none focus:border-[#0066CC] transition-colors duration-500"
                   required
                 />
               </div>
@@ -183,8 +147,8 @@ export function Contact() {
                   htmlFor="project"
                   className={`absolute left-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] pointer-events-none ${
                     focusedField === "project" || formState.project
-                      ? "text-[11px] text-[#737371] -top-6 tracking-[0.08em] uppercase"
-                      : "text-[15px] text-[#A3A3A1] top-3"
+                      ? "text-[11px] text-[#86868B] -top-6 tracking-[0.08em] uppercase"
+                      : "text-[15px] text-[#A1A1A6] top-3"
                   }`}
                 >
                   Tipo de proyecto
@@ -199,7 +163,7 @@ export function Contact() {
                   }
                   onFocus={() => setFocusedField("project")}
                   onBlur={() => setFocusedField(null)}
-                  className="w-full py-3 bg-transparent border-b border-[rgba(0,0,0,0.08)] text-[#000000] text-[15px] tracking-[-0.01em] focus:outline-none focus:border-[#000000] transition-colors duration-500"
+                  className="w-full py-3 bg-transparent border-b border-[rgba(29,29,31,0.08)] text-[#1D1D1F] text-[15px] tracking-[-0.01em] focus:outline-none focus:border-[#0066CC] transition-colors duration-500"
                 />
               </div>
 
@@ -209,8 +173,8 @@ export function Contact() {
                   htmlFor="message"
                   className={`absolute left-0 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] pointer-events-none ${
                     focusedField === "message" || formState.message
-                      ? "text-[11px] text-[#737371] -top-6 tracking-[0.08em] uppercase"
-                      : "text-[15px] text-[#A3A3A1] top-3"
+                      ? "text-[11px] text-[#86868B] -top-6 tracking-[0.08em] uppercase"
+                      : "text-[15px] text-[#A1A1A6] top-3"
                   }`}
                 >
                   Cuentanos sobre tu proyecto
@@ -225,7 +189,7 @@ export function Contact() {
                   onFocus={() => setFocusedField("message")}
                   onBlur={() => setFocusedField(null)}
                   rows={4}
-                  className="w-full py-3 bg-transparent border-b border-[rgba(0,0,0,0.08)] text-[#000000] text-[15px] tracking-[-0.01em] focus:outline-none focus:border-[#000000] transition-colors duration-500 resize-none"
+                  className="w-full py-3 bg-transparent border-b border-[rgba(29,29,31,0.08)] text-[#1D1D1F] text-[15px] tracking-[-0.01em] focus:outline-none focus:border-[#0066CC] transition-colors duration-500 resize-none"
                   required
                 />
               </div>
@@ -234,11 +198,11 @@ export function Contact() {
               <div className="pt-4">
                 <button
                   type="submit"
-                  className="group inline-flex items-center gap-3 text-[15px] text-[#000000] font-medium tracking-[-0.01em]"
+                  className="group inline-flex items-center gap-3 text-[15px] text-[#0066CC] font-medium tracking-[-0.01em]"
                 >
                   <span className="relative">
                     Enviar mensaje
-                    <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#000000] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] origin-left group-hover:scale-x-0" />
+                    <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#0066CC] transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] origin-left group-hover:scale-x-0" />
                   </span>
                   <span className="transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:translate-x-1">
                     &rarr;

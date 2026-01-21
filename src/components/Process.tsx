@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 const steps = [
   {
@@ -31,32 +31,12 @@ const steps = [
 ];
 
 export function Process() {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState(0);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-liquid-up");
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = containerRef.current?.querySelectorAll("[data-animate]");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <section
       id="proceso"
-      ref={containerRef}
-      className="relative py-32 md:py-48 bg-[#000000] text-[#F9F9F7]"
+      className="relative py-12 md:py-16 bg-[#000000] text-[#F9F9F7]"
     >
       {/* Grain texture on dark */}
       <div
@@ -68,19 +48,12 @@ export function Process() {
 
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
         {/* Editorial header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-24 md:mb-40">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-20">
           <div>
-            <span
-              data-animate
-              className="opacity-0 text-[11px] text-[#737371] tracking-[0.08em] uppercase block mb-6"
-            >
+            <span className="text-[11px] text-[#86868B] tracking-[0.08em] uppercase block mb-6">
               Proceso
             </span>
-            <h2
-              data-animate
-              className="opacity-0 text-[clamp(2.5rem,6vw,4.5rem)] font-medium tracking-[-0.04em] leading-[0.95]"
-              style={{ animationDelay: "100ms" }}
-            >
+            <h2 className="text-[clamp(2.5rem,6vw,4.5rem)] font-bold tracking-[-0.04em] leading-[0.95]">
               De la idea
               <br />
               <span className="italic">al resultado.</span>
@@ -88,12 +61,8 @@ export function Process() {
           </div>
 
           {/* Current step indicator - large */}
-          <div
-            data-animate
-            className="opacity-0"
-            style={{ animationDelay: "200ms" }}
-          >
-            <span className="text-[clamp(4rem,10vw,8rem)] font-medium tracking-[-0.05em] text-[#262626] leading-none">
+          <div>
+            <span className="text-[clamp(4rem,10vw,8rem)] font-bold tracking-[-0.05em] text-[#262626] leading-none">
               {steps[activeStep].number}
             </span>
           </div>
@@ -104,9 +73,7 @@ export function Process() {
           {steps.map((step, index) => (
             <div
               key={step.number}
-              data-animate
-              className="opacity-0 group relative cursor-pointer"
-              style={{ animationDelay: `${(index + 3) * 100}ms` }}
+              className="group relative cursor-pointer"
               onMouseEnter={() => setActiveStep(index)}
             >
               {/* Top border */}
@@ -116,7 +83,7 @@ export function Process() {
                 }`}
               />
 
-              <div className="py-10 md:py-12 md:pr-8">
+              <div className="py-8 md:py-10 md:pr-8">
                 {/* Phase label */}
                 <span
                   className={`text-[11px] tracking-[0.08em] uppercase transition-colors duration-500 ${
@@ -153,25 +120,17 @@ export function Process() {
         </div>
 
         {/* Bottom section */}
-        <div className="mt-20 md:mt-32">
+        <div className="mt-12 md:mt-16">
           <div className="h-[0.5px] bg-[#262626]" />
 
-          <div className="pt-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
-            <p
-              data-animate
-              className="opacity-0 text-[14px] text-[#737371] tracking-[-0.01em] max-w-md"
-              style={{ animationDelay: "700ms" }}
-            >
+          <div className="pt-8 flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <p className="text-[14px] text-[#86868B] tracking-[-0.01em] max-w-md">
               Cada proyecto es un proceso de colaboración. Trabajamos juntos
               desde el primer concepto hasta el lanzamiento final.
             </p>
 
             {/* Progress indicator */}
-            <div
-              data-animate
-              className="opacity-0 flex items-center gap-3"
-              style={{ animationDelay: "800ms" }}
-            >
+            <div className="flex items-center gap-3">
               {steps.map((_, index) => (
                 <button
                   key={index}
